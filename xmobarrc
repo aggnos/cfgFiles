@@ -1,0 +1,18 @@
+Config { font = "xft:Droid Sans Mono:size=10:bold:antialias=true"  
+     , bgColor = "#000000"  
+     , fgColor = "grey"  
+     , position = Static { xpos = 0 , ypos = 0, width = 1366, height = 16 }  
+     , commands = [ Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10  
+            -- , Run Network "wlp6s0" ["-L","0","-H","70","--normal","green","--high","lightblue"] 10   
+             , Run Memory ["-t","Mem: <usedratio>%"] 10  
+            -- , Run Com "/home/lulz/scripts/cputemp.sh" [] "cpuTemp" 10  
+           , Run Date "%a %b %_d %k:%M" "date" 10  
+           , Run Com "/home/aggnos/.config/volumeScript.sh" [] 
+"volume" 
+10  
+           , Run StdinReader  
+           ]  
+     , sepChar = "%"  
+     , alignSep = "}{"  
+     , template = " %StdinReader%}{ <fc=grey>%cpu%</fc><fc=grey> | %memory% </fc><fc=white> Volume:%volume%</fc> <fc=#f57900>%date%</fc>"
+     }  
